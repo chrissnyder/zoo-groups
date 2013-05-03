@@ -1,0 +1,7 @@
+<% unless @group: %>
+  <h2>No Group</h2>
+<% else: %>
+  <h2>Current Group</h2>
+  <p id="name"><%- @group.name %></p>
+  <button id="leave">Leave Group</button>
+<% end %>

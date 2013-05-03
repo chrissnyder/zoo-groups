@@ -1,0 +1,5 @@
+<h2>Create New Group</h2>
+<form id="group-creator">
+  <input type="text" id="group-name"></input>
+  <button id="create">Create Group</button>
+</form>

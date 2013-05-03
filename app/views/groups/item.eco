@@ -1,0 +1,21 @@
+<h3><%- @group.name %></h3>
+<p>Link: <a href="<%- @group.joinLink() %>">here</a></p>
+
+<% if @group.projects? then for project_name, project_data of @group.projects: %>
+  <h4><%- project_name %></h4>
+  <% if project_data.users? then for user_id, user_data of project_data.users: %>
+    <p><%- @group.users[user_id].name %>: <%- user_data.classification_count %></p>
+  <% end %>
+<% end %>
+
+<p>
+  <% if @current_group?.id and @current_group.id is @group.id: %>
+    You are in this group!
+  <% else: %>
+    <button class="classify-in-group">Classify in Group</button>
+  <% end %>
+
+  <% if @user.id is @group.owner.id: %>
+    <button class="destroy-group">Delete Group</button>
+  <% end %>
+</p>
