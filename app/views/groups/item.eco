@@ -2,15 +2,22 @@
 <p>Link: <input size="50" value="<%- @group.joinLink() %>"></input></p>
 
 <% if @group.projects? then for project_name, project_data of @group.projects: %>
-
   <h4 class="group-project-name"><%- project_name %></h4>
-
   <ul class="group">
-  <% if project_data.users? then for user_id, user_data of project_data.users: %>
-    <li class="group-user"><%- @group.users[user_id].name %>: <%- user_data.classification_count %></li>
-  <% end %>
+    <% unless @user.id is @group.owner.id: %>
+      <li class="group-user"><%- @group.users[@user.id].name %>:
+        <% if project_data.users[@user.id]?: %>
+          <%- project_data.users[@user.id].classification_count %>
+        <% else: %>
+          0
+        <% end %>
+      </li>
+    <% else: %>
+      <% if project_data.users? then for user_id, user_data of project_data.users: %>
+        <li class="group-user"><%- @group.users[user_id].name %>: <%- user_data.classification_count %></li>
+      <% end %>
+    <% end %>
   </ul>
-
 <% end %>
 
 <div class="group-actions">
