@@ -1,5 +1,5 @@
 <h3><%- @group.name %></h3>
-<p>Link: <a href="<%- @group.joinLink() %>">here</a></p>
+<p>Link: <input size="50" value="<%- @group.joinLink() %>"></input></p>
 
 <% if @group.projects? then for project_name, project_data of @group.projects: %>
   <h4><%- project_name %></h4>

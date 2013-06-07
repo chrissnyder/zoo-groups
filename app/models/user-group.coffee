@@ -98,7 +98,7 @@ class UserGroup extends BaseModel
     "#{ @constructor.path() }/#{ @id }"
 
   joinLink: =>
-    "#{ location.origin }/#{ @unique_name }"
+    "#{ location.origin }#{ location.pathname }#/#{ @unique_name }"
 
   select: =>
     @constructor.current = @

@@ -1,7 +1,7 @@
 {Controller} = require 'spine'
 
 User = require 'zooniverse/models/user'
-UserGroup = require '../models/user_group'
+UserGroup = require '../models/user-group'
 
 class Home extends Controller
   template: require '../views/main'
@@ -27,7 +27,8 @@ class Home extends Controller
 
   active: (params = {}) =>
     super
-    if params.id then UserGroup.join params.id
-
+    if params.id
+      UserGroup.join(params.id).done =>
+        UserGroup.list()
 
 module.exports = Home

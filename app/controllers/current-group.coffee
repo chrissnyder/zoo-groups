@@ -1,8 +1,9 @@
 BaseController = require './base-controller'
 
-UserGroup = require '../models/user_group'
+UserGroup = require '../models/user-group'
 
 class CurrentGroup extends BaseController
+  className: 'current-group'
   template: require '../views/current-group'
 
   events:

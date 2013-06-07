@@ -7,8 +7,7 @@
     "haw": "~0.0.6",
     "jqueryify": "~1.9.1",
     "json2ify": "~0.0.3",
-    "zooniverse": "git+ssh://git@github.com:zooniverse/Zooniverse.git#no-deps",
-    "backbone": "~1.0.0",
-    "spine": "~1.1.0"
+    "spine": "~1.1.0",
+    "zooniverse": "git://github.com/zooniverse/Zooniverse.git#no-deps"
   }
 }

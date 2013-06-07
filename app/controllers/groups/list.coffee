@@ -1,11 +1,12 @@
 BaseController = require '../base-controller'
 _ = require 'underscore'
 
-UserGroup = require '../../models/user_group'
+UserGroup = require '../../models/user-group'
 
 Item = require './item'
 
 class GroupList extends BaseController
+  className: 'group-list'
   template: require '../../views/groups/list'
 
   elements:

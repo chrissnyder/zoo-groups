@@ -1,9 +1,10 @@
 BaseController = require '../base-controller'
 
 User = require 'zooniverse/models/user'
-UserGroup = require '../../models/user_group'
+UserGroup = require '../../models/user-group'
 
 class GroupItem extends BaseController
+  className: 'group-item'
   tag: 'li'
   template: require '../../views/groups/item'
 

@@ -1,8 +1,9 @@
 BaseController = require './base-controller'
 
-UserGroup = require '../models/user_group'
+UserGroup = require '../models/user-group'
 
 class CreateGroup extends BaseController
+  className: 'create-group'
   template: require '../views/create-group'
 
   events:

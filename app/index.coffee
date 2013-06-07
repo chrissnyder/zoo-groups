@@ -1,7 +1,13 @@
 require './lib/setup'
 
 Api = require 'zooniverse/lib/api'
-api = new Api project: 'groups'
+
+if window.location.port > 1000
+  host = 'https://dev.zooniverse.org'
+else
+  host = 'https://api.zooniverse.org'
+
+api = new Api host: host
 
 # Build app
 app = {}

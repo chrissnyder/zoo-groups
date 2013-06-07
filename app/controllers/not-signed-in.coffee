@@ -1,6 +1,7 @@
 BaseController = require './base-controller'
 
-class notSignedIn extends BaseController
+class NotSignedIn extends BaseController
+  className: "not-signed-in"
   template: require '../views/not-signed-in'
 
   events:
@@ -14,4 +15,4 @@ class notSignedIn extends BaseController
     e.preventDefault()
     require('zooniverse/controllers/login-dialog').show()
 
-module.exports = notSignedIn
+module.exports = NotSignedIn
