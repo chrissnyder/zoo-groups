@@ -5,7 +5,6 @@
     "coffee-script": "~1.4.0",
     "es5-shimify": "~0.0.1",
     "haw": "~0.0.6",
-    "jqueryify": "~1.9.1",
     "json2ify": "~0.0.3",
     "spine": "~1.1.0",
     "zooniverse": "git://github.com/zooniverse/Zooniverse.git#no-deps",
