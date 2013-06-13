@@ -1,6 +1,6 @@
 require './lib/setup'
 
-api = new (require 'zooniverse/lib/api')
+new (require 'zooniverse/lib/api')
 (require 't7e').load require './lib/en-us'
 
 # Build app
@@ -10,8 +10,7 @@ $(app.container).html require('./views/attempt-sign-in')
 
 spinner = new Spinner({width: 3}).spin(document.querySelector app.container)
 
-TopBar = require 'zooniverse/controllers/top-bar'
-app.topBar = new TopBar
+app.topBar = new (require 'zooniverse/controllers/top-bar')
 app.topBar.el.prependTo 'body'
 
 User = require 'zooniverse/models/user'
@@ -22,12 +21,10 @@ User.on 'change', (e, user) ->
 
   spinner.stop()
 
-  Home = require './controllers/home'
-
   {Stack} = require 'spine/lib/manager'
   app.stack = new Stack
     controllers:
-      'home': Home
+      'home': require './controllers/home'
 
     routes:
       '/': 'home'
@@ -37,8 +34,7 @@ User.on 'change', (e, user) ->
 
   $(app.container).html app.stack.el
 
-  Route = require 'spine/lib/route'
-  Route.setup()
+  (require 'spine/lib/route').setup()
 
 # GO
 User.fetch()

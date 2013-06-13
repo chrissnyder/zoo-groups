@@ -1,7 +1,7 @@
 
 <div class="columns two">
-  <div class="column"><div id="current-group"></div></div>
-  <div class="column"><div id="create-group"></div></div>
+  <div class="column" id="current-group"></div>
+  <div class="column" id="create-group"></div>
 </div>
 
 <hr>

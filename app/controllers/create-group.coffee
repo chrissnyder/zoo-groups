@@ -6,6 +6,9 @@ class CreateGroup extends BaseController
   className: 'create-group'
   template: require '../views/create-group'
 
+  elements:
+    'input[name="group-name"]': 'groupNameInput'
+
   events:
     'click #create': 'onCreateGroup'
 
@@ -15,7 +18,7 @@ class CreateGroup extends BaseController
 
   onCreateGroup: (e) =>
     e.preventDefault()
-    @createGroup $('#group-name').val()
+    @createGroup @groupNameInput.val()
 
   createGroup: (name) =>
     request = UserGroup.create name
