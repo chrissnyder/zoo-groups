@@ -4,6 +4,7 @@ BaseModel = require 'zooniverse/models/base-model'
 class UserGroup extends BaseModel
   @current: null
   @currentId: -1
+
   @path: ->
     'user_groups'
 
@@ -62,19 +63,6 @@ class UserGroup extends BaseModel
 
     participater.promise()
 
-  @leave: (id) =>
-    leaverId = id || @currentId
-    leaver = new $.Deferred
-
-    request = Api.current.getJSON "#{ @path() }/#{ leaverId }/leave"
-
-    request.always =>
-      @current.destroy()
-      @trigger 'leave'
-      leaver.resolve arguments...
-
-    leaver.promise()
-
   @list: =>
     lister = new $.Deferred
 
@@ -88,7 +76,6 @@ class UserGroup extends BaseModel
 
   id: ''
   unique_name: ''
-  open: true
 
   constructor: (params = {}) ->
     super params
@@ -120,6 +107,22 @@ class UserGroup extends BaseModel
       destroyer.reject arguments...
 
     destroyer.promise()
+
+  leave: =>
+    leaver = new $.Deferred
+
+    request = Api.current.getJSON "#{ @url() }/leave"
+
+    request.done =>
+      @current.destroy()
+      @trigger 'leave'
+      leaver.resolve arguments...
+
+    request.fail =>
+      @trigger 'leave-fail'
+      leaver.reject arguments...
+
+    leaver.promise()
 
   participate: =>
     participater = new $.Deferred

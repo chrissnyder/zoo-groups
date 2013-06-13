@@ -17,7 +17,12 @@ class CurrentGroup extends BaseController
       @render group: UserGroup.current
 
   onLeave: ->
-    UserGroup.leave()
+    request = UserGroup.current.leave()
 
+    request.done @render
+
+    request.fail =>
+      console.log arguments...
+      alert 'Failed to leave group!'
 
 module.exports = CurrentGroup
