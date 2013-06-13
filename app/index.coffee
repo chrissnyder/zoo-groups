@@ -8,6 +8,8 @@ app = {}
 app.container = '#app'
 $(app.container).html require('./views/attempt-sign-in')
 
+spinner = new Spinner({width: 3}).spin(document.querySelector app.container)
+
 TopBar = require 'zooniverse/controllers/top-bar'
 app.topBar = new TopBar
 app.topBar.el.prependTo 'body'
@@ -17,6 +19,8 @@ User.on 'change', (e, user) ->
   unless user
     $(app.container).html (new (require('./controllers/not-signed-in'))).el
     return
+
+  spinner.stop()
 
   Home = require './controllers/home'
 
