@@ -4,7 +4,7 @@
 <% if @group.projects? then for project_name, project_data of @group.projects: %>
   <h4 class="group-project-name"><%- project_name %></h4>
   <ul class="group">
-    <% unless @user.id is @group.owner.id: %>
+    <% unless (@user.id is @group.owner.id) or @group.metadata.protected: %>
       <li class="group-user"><%- @group.users[@user.id].name %>:
         <% if project_data.users[@user.id]?: %>
           <%- project_data.users[@user.id].classification_count %>

@@ -22,7 +22,6 @@ class CurrentGroup extends BaseController
     request.done @render
 
     request.fail =>
-      console.log arguments...
       alert 'Failed to leave group!'
 
 module.exports = CurrentGroup

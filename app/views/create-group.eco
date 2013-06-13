@@ -1,8 +1,15 @@
 <% translate = require 't7e' %>
 
-<%- translate 'h2', 'createGroup' %>
+<%- translate 'h2', 'createGroup.header' %>
 <form id="group-creator">
-  <input type="text" id="group-name"></input>
-  <input type="checkbox" id="group-metadata-protected"></input>
-  <button id="create"><%- translate 'createGroup' %></button>
+  <label>
+    <input type="text" name="group-name" placeholder="<%- translate 'groupName' %>">
+  </label>
+  
+  <label>
+    <input type="checkbox" name="protected" id="group-metadata-protected">
+    <%- translate 'createGroup.intendedUse' %>
+  </label>
+
+  <button id="create"><%- translate 'createGroup.header' %></button>
 </form>

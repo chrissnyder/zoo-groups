@@ -37,23 +37,19 @@ class GroupItem extends BaseController
     request = @group.destroy()
 
     request.done =>
-      console.log 'group destroyed'
       @el.remove()
       UserGroup.off 'select'
 
     request.fail =>
       console.log 'group destroying failed'
 
-
   joinGroup: =>
     request = @group.participate()
 
     request.done =>
-      console.log 'group joined'
       @render()
 
     request.fail =>
       console.log 'group doesnt exist'
-
 
 module.exports = GroupItem

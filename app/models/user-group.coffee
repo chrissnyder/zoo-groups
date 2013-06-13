@@ -9,11 +9,12 @@ class UserGroup extends BaseModel
     'user_groups'
 
   @create: (name, metadata = {}) =>
+    metadata['open'] = true # for now
+
     json =
       user_group:
         name: name
-        metadata: 
-          open: true
+        metadata: metadata
     
     Api.current.getJSON "#{ @path() }/create", json, (rawGroup) =>
       group = new @ rawGroup

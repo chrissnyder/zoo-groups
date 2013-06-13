@@ -2,12 +2,15 @@ BaseController = require './base-controller'
 
 UserGroup = require '../models/user-group'
 
+REQUIRED_KEYS = ['group-name']
+
 class CreateGroup extends BaseController
   className: 'create-group'
   template: require '../views/create-group'
 
   elements:
-    'input[name="group-name"]': 'groupNameInput'
+    'form': 'form'
+    'input[name="group-name"]': 'nameInput'
 
   events:
     'click #create': 'onCreateGroup'
@@ -18,12 +21,23 @@ class CreateGroup extends BaseController
 
   onCreateGroup: (e) =>
     e.preventDefault()
-    @createGroup @groupNameInput.val()
 
-  createGroup: (name) =>
-    request = UserGroup.create name
+    metadata = {}
+
+    for element in @form.find('input, select').toArray() when (!~REQUIRED_KEYS.indexOf element.name)
+      {name, value, attributes} = element
+
+      switch attributes.getNamedItem('type').nodeValue
+        when 'checkbox'
+          metadata[name] = element.checked
+        else
+          metadata[name] = value
+
+    request = UserGroup.create @nameInput.val(), metadata
 
     request.done =>
       UserGroup.list()
+
+  createGroup: (name) =>
 
 module.exports = CreateGroup
