@@ -1,6 +1,7 @@
 require './lib/setup'
 
 api = new (require 'zooniverse/lib/api')
+(require 't7e').load require './lib/en-us'
 
 # Build app
 app = {}

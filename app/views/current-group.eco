@@ -1,7 +1,9 @@
+<% translate = require 't7e' %>
+
 <% unless @group: %>
-  <h2>No Group</h2>
+  <%- translate 'h2', 'noGroup' %>
 <% else: %>
-  <h2>Current Group</h2>
+  <%- translate 'h2', 'currentGroup' %>
   <p id="name"><%- @group.name %></p>
-  <button id="leave">Leave Group</button>
+  <button id="leave"><%- translate 'leaveGroup' %></button>
 <% end %>

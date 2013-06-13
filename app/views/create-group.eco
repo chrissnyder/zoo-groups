@@ -1,5 +1,8 @@
-<h2>Create New Group</h2>
+<% translate = require 't7e' %>
+
+<%- translate 'h2', 'createGroup' %>
 <form id="group-creator">
   <input type="text" id="group-name"></input>
-  <button id="create">Create Group</button>
+  <input type="checkbox" id="group-metadata-protected"></input>
+  <button id="create"><%- translate 'createGroup' %></button>
 </form>

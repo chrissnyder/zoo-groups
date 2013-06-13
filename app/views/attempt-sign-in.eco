@@ -1,3 +1,5 @@
+<% translate = require 't7e' %>
+
 <div class="signing-in">
-  <p>Attempting to sign in...</p>
+  <%- translate 'p', 'login.attemptSignIn' %>
 </div>
