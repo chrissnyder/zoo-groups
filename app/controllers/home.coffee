@@ -1,9 +1,9 @@
-{Controller} = require 'spine'
+BaseController = require './base-controller'
 
 User = require 'zooniverse/models/user'
 UserGroup = require '../models/user-group'
 
-class Home extends Controller
+class Home extends BaseController
   template: require '../views/main'
 
   elements:
