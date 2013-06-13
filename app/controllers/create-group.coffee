@@ -38,6 +38,4 @@ class CreateGroup extends BaseController
     request.done =>
       UserGroup.list()
 
-  createGroup: (name) =>
-
 module.exports = CreateGroup
