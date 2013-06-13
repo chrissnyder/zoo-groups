@@ -8,6 +8,11 @@
     "jqueryify": "~1.9.1",
     "json2ify": "~0.0.3",
     "spine": "~1.1.0",
-    "zooniverse": "git://github.com/zooniverse/Zooniverse.git#no-deps"
+    "zooniverse": "git://github.com/zooniverse/Zooniverse.git#no-deps",
+    "publisssh": "0.0.5"
+  },
+  "scripts": {
+    "start": "haw serve",
+    "deploy": "haw build && publisssh && trash ./build"
   }
 }
