@@ -115,7 +115,7 @@ class UserGroup extends BaseModel
     request = Api.current.getJSON "#{ @url() }/leave"
 
     request.done =>
-      @current.destroy()
+      @constructor.current = null if @constructor.current is @
       @trigger 'leave'
       leaver.resolve arguments...
 

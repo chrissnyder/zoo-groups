@@ -15,7 +15,9 @@ class GroupItem extends BaseController
   constructor: (@group) ->
     super
 
-    UserGroup.on 'select', => @render()
+    UserGroup.on 'select', @render
+    @group.on 'destroy', @release
+
     @render()
 
   render: =>
@@ -30,7 +32,6 @@ class GroupItem extends BaseController
 
   onJoin: (e) =>
     @joinGroup()
-
 
   # "API"
   destroyGroup: =>

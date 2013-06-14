@@ -7,7 +7,7 @@
   </label>
   
   <label>
-    <input type="checkbox" name="protected" id="group-metadata-protected">
+    <input type="checkbox" name="classroom">
     <%- translate 'createGroup.intendedUse' %>
   </label>
 

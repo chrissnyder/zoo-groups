@@ -29,7 +29,7 @@ class CreateGroup extends BaseController
 
       switch attributes.getNamedItem('type').nodeValue
         when 'checkbox'
-          metadata[name] = element.checked
+          metadata[name] = if element.checked then 'yes' else 'no'
         else
           metadata[name] = value
 

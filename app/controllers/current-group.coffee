@@ -13,13 +13,15 @@ class CurrentGroup extends BaseController
     super
     @html @template()
     
-    UserGroup.on 'select', =>
+    UserGroup.on 'select destroy', =>
       @render group: UserGroup.current
 
   onLeave: ->
     request = UserGroup.current.leave()
 
-    request.done @render
+    request.done =>
+      @render()
+      UserGroup.list()
 
     request.fail =>
       alert 'Failed to leave group!'
