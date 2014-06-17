@@ -1,5 +1,5 @@
 {
   "local": "build",
-  "bucket": "groups.zooniverse.org",
+  "bucket": "zooniverse-static/groups.zooniverse.org",
   "ignore": [".DS_Store"]
 }
